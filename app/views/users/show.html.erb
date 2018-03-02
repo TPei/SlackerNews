@@ -2,13 +2,13 @@
 
 
 <% if can? :update, User  %>
-    <%= link_to 'Edit User', edit_user_path(@user) %>
+  <%= link_to 'Edit User', edit_user_path(@user) %>
 <% end %>
 
 <h2>Last Posts</h2>
 
 <div class="posts">
-    <%= render partial: "posts/post", collection: @posts %>
+  <%= render partial: "posts/post", collection: @posts %>
 </div>
 
 <%= link_to 'Show More', user_posts_user_path(@user)%>
@@ -17,7 +17,7 @@
 <h2>Favourites</h2>
 
 <div class="posts">
-    <%= render partial: "posts/post", collection: @favoured_posts %>
+  <%= render partial: "posts/post", collection: @favoured_posts %>
 </div>
 
 <%= link_to 'Show More', user_favourites_user_path(@user)%>

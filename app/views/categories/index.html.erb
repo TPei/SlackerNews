@@ -3,10 +3,10 @@
 <%= link_to 'Create new slackegory', new_category_path %>
 
 <div class="search-container">
-    <%= form_tag(categories_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search for slackegory" %>
-        <%= submit_tag "Search", :name => nil %>
-    <% end %>
+  <%= form_tag(categories_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for slackegory" %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
 </div>
 
 <div class="pagination-container">
@@ -15,20 +15,20 @@
 
 <hr>
 <table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Parent Category</th>
-            <th>Number of Posts</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @categories.each do |category| %>
-            <tr>
-                <td><%= link_to category.name, category %></td>
-                <td><%= link_to category.parent_category.name, category.parent_category unless not category.parent_category %></td>
-                <td><%= category.posts.size %></td>
-            </tr>
-        <% end %>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Parent Category</th>
+      <th>Number of Posts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.name, category %></td>
+        <td><%= link_to category.parent_category.name, category.parent_category unless not category.parent_category %></td>
+        <td><%= category.posts.size %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

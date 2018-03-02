@@ -1,60 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-
+  <head>
     <!-- Required meta tags always come first -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+    <title>
+      <% if Rails.env.development? %>[DEV]<% end %>
+      <%=[content_for(:title), 'SlackerNews'].compact.join(" :: ") %>
+    </title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
-  <title>
-    <% if Rails.env.development? %>[DEV]<% end %>
-    <%=[content_for(:title), 'SlackerNews'].compact.join(" :: ") %>
-  </title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'layouts/application_header' %>
 
-  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-</head>
-<body>
+          <hr class="clearfix">
 
-<div class="container">
-	
-<div class="row">
-<div class="col-md-12">
-  <%= render 'layouts/application_header' %>
-
-	<hr class="clearfix">
-
-	<%= yield %>
-  <main>
-        <% if notice %>
+          <%= yield %>
+          <main>
+          <% if notice %>
             <p id="notice" class="alert alert-info"><%= notice %></p>
-        <% end %>
-	</main>
+          <% end %>
+          </main>
 
-	<hr>
+          <hr>
 
-	<footer>
-    <div class="footer-column-left">
-      <small>Powered by <a href="https://github.com/kaozente/SlackerNews">the mighty SlackerNews</a></small> | 
-      <small>Do you have feature-requests, ideas or suggestions? Feel free to <a href="https://github.com/kaozente/SlackerNews/issues">file an issue!</a></small>
+          <footer>
+            <div class="footer-column-left">
+              <small>Powered by <a href="https://github.com/kaozente/SlackerNews">the mighty SlackerNews</a></small> | 
+              <small>Do you have feature-requests, ideas or suggestions? Feel free to <a href="https://github.com/kaozente/SlackerNews/issues">file an issue!</a></small>
+            </div>
+            <div class="footer-column-right">
+              <%= image_tag "works_on_my_machine.png", width: 50 %>
+            </div>
+          </footer>
+        </div>
+      </div>
     </div>
-    <div class="footer-column-right">
-      <%= image_tag "works_on_my_machine.png", width: 50 %>
-    </div>
-  </footer>
-</div>
-</div>
-
-
-
-
-</div>
-
-
-
-</body>
+  </body>
 </html>

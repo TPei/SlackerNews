@@ -2,7 +2,7 @@
 	<div class="post-top">
 		<span class="post-top">
       <a class="post-link" href="<%= post.url %>" target="_blank"><%= post.title %></a>
-		(
+      (
       <span title="<%= post.heat %>"><%= post.score %></span>
       <span class="post-upvote-link"> <%= link_to('+', upvote_post_path(post)) %></span> /
       <span class="post-downvote-link"> <%= link_to('-', downvote_post_path(post)) %></span>
@@ -25,10 +25,6 @@
         Comments
         <% if post.comments.count > 0 %>(<%= post.comments.count %>)<% end %>
       <% end  %>
-
 	  </span>
-
-
-
 	</div>
 </div>

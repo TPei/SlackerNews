@@ -4,9 +4,9 @@
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -24,13 +24,12 @@
     <%= f.text_field :description %>
   </div>
 
-    <label for="">Slackegories</label>
-      <% if not @category %>
-        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
-      <% else %>
-        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, checked: @category.id) %>
-      <% end %>
-
+  <label for="">Slackegories</label>
+  <% if not @category %>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
+  <% else %>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, checked: @category.id) %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>
