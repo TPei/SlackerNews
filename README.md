@@ -7,4 +7,3 @@ HackerNews Clone in Rails
 
   * https://github.com/rspec/rspec-rails
   * http://www.rubydoc.info/gems/factory_bot/file/GETTING_STARTED.md
-  
