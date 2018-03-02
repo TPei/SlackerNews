@@ -1,6 +1,5 @@
 <h1><%= @user.name %></h1>
 
-
 <% if can? :update, User  %>
   <%= link_to 'Edit User', edit_user_path(@user) %>
 <% end %>
@@ -12,7 +11,6 @@
 </div>
 
 <%= link_to 'Show More', user_posts_user_path(@user)%>
-
 
 <h2>Favourites</h2>
 
